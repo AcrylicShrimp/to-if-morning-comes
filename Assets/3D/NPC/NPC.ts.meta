@@ -1,0 +1,52 @@
+fileFormatVersion: 2
+guid: a7e658fbe2c7c4fbcbbbbe3d8b17d6db
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst NPCBubbleText_1 = require(\"./NPCBubbleText\");\r\nconst
+    NPCBubbleTextProvider_1 = require(\"./NPCBubbleTextProvider\");\r\nconst GlobalCoroutineManager_1
+    = require(\"../../Loading Screen/GlobalCoroutineManager\");\r\nclass NPC extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n        const spawnInfo
+    = new ZEPETO_Character_Controller_1.SpawnInfo();\r\n        spawnInfo.position
+    = this.transform.position;\r\n        spawnInfo.rotation = this.transform.rotation;\r\n       
+    const id = `__NPC__${this.zepetoId}_${Math.random()}`;\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedPlayer.AddListener((sessionId)
+    => {\r\n            if (sessionId !== id)\r\n                return;\r\n           
+    if (!ZEPETO_Character_Controller_1.ZepetoPlayers.instance.HasPlayer(sessionId))\r\n               
+    return;\r\n            const player = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.GetPlayer(sessionId);\r\n           
+    player.character.transform.SetParent(this.transform, false);\r\n            player.character.transform.localPosition
+    = UnityEngine_1.Vector3.zero;\r\n            player.character.transform.localEulerAngles
+    = UnityEngine_1.Vector3.zero;\r\n            if (this.animation)\r\n               
+    GlobalCoroutineManager_1.default.Instance.RunAfter(3, () => {\r\n                   
+    player.character.SetGesture(this.animation);\r\n                });\r\n           
+    if (this.dialogues.length) {\r\n                const bubbleTextObject = UnityEngine_1.GameObject.Instantiate(NPCBubbleTextProvider_1.default.Instance.NPCBubbleText,
+    player.character.transform, false);\r\n                bubbleTextObject.transform.position
+    = UnityEngine_1.Vector3.op_Addition(player.character.ZepetoAnimator.GetBoneTransform(UnityEngine_1.HumanBodyBones.Head)\r\n                   
+    .position, UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.up, this.dialogueHeightOffset));\r\n               
+    this.StartCoroutine(this.PresentDialogues(bubbleTextObject.GetComponent($typeof(NPCBubbleText_1.default))));\r\n           
+    }\r\n        });\r\n        $extension(\"ZEPETO.Character.Controller.ZepetoPlayersExtension\").CreatePlayerWithZepetoId(ZEPETO_Character_Controller_1.ZepetoPlayers.instance,
+    id, this.zepetoId, spawnInfo, false);\r\n    }\r\n    *PresentDialogues(bubbleText)
+    {\r\n        let dialogueIndex = 0;\r\n        for (;;) {\r\n            yield
+    new UnityEngine_1.WaitForSeconds(1 + Math.random() * 2);\r\n            bubbleText.ShowDialogue(this.dialogues[dialogueIndex]);\r\n           
+    dialogueIndex = (dialogueIndex + 1) % this.dialogues.length;\r\n            yield
+    new UnityEngine_1.WaitForSeconds(5);\r\n            bubbleText.HideDialogue();\r\n       
+    }\r\n    }\r\n}\r\nexports.default = NPC;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTlBDLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTlBDLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBTXFCO0FBQ3JCLDZFQUF1RTtBQUN2RSxpREFBc0Q7QUFFdEQsbURBQTRDO0FBQzVDLG1FQUE0RDtBQUM1RCx3RkFBaUY7QUFFakYsTUFBcUIsR0FBSSxTQUFRLHFDQUFxQjtJQWE3QyxLQUFLO1FBQ1YsTUFBTSxTQUFTLEdBQUcsSUFBSSx1Q0FBUyxFQUFFLENBQUM7UUFDbEMsU0FBUyxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQztRQUM3QyxTQUFTLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQyxTQUFTLENBQUMsUUFBUSxDQUFDO1FBRTdDLE1BQU0sRUFBRSxHQUFHLFVBQVUsSUFBSSxDQUFDLFFBQVEsSUFBSSxJQUFJLENBQUMsTUFBTSxFQUFFLEVBQUUsQ0FBQztRQUV0RCwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxhQUFhLENBQUMsV0FBVyxDQUFDLENBQUMsU0FBUyxFQUFFLEVBQUU7WUFDN0QsSUFBSSxTQUFTLEtBQUssRUFBRTtnQkFBRSxPQUFPO1lBQzdCLElBQUksQ0FBQywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxTQUFTLENBQUMsU0FBUyxDQUFDO2dCQUFFLE9BQU87WUFFekQsTUFBTSxNQUFNLEdBQUcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsU0FBUyxDQUFDLFNBQVMsQ0FBQyxDQUFDO1lBQzNELE1BQU0sQ0FBQyxTQUFTLENBQUMsU0FBUyxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsU0FBUyxFQUFFLEtBQUssQ0FBQyxDQUFDO1lBQzVELE1BQU0sQ0FBQyxTQUFTLENBQUMsU0FBUyxDQUFDLGFBQWEsR0FBRyxxQkFBTyxDQUFDLElBQUksQ0FBQztZQUN4RCxNQUFNLENBQUMsU0FBUyxDQUFDLFNBQVMsQ0FBQyxnQkFBZ0IsR0FBRyxxQkFBTyxDQUFDLElBQUksQ0FBQztZQUUzRCxJQUFJLElBQUksQ0FBQyxTQUFTO2dCQUNoQixnQ0FBc0IsQ0FBQyxRQUFRLENBQUMsUUFBUSxDQUFDLENBQUMsRUFBRSxHQUFHLEVBQUU7b0JBQy9DLE1BQU0sQ0FBQyxTQUFTLENBQUMsVUFBVSxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsQ0FBQztnQkFDOUMsQ0FBQyxDQUFDLENBQUM7WUFFTCxJQUFJLElBQUksQ0FBQyxTQUFTLENBQUMsTUFBTSxFQUFFO2dCQUN6QixNQUFNLGdCQUFnQixHQUFHLHdCQUFVLENBQUMsV0FBVyxDQUM3QywrQkFBcUIsQ0FBQyxRQUFRLENBQUMsYUFBYSxFQUM1QyxNQUFNLENBQUMsU0FBUyxDQUFDLFNBQVMsRUFDMUIsS0FBSyxDQUNOLENBQUM7Z0JBQ0YsZ0JBQWdCLENBQUMsU0FBUyxDQUFDLFFBQVEsR0FsRHpDLHFCQUFPLENBZ0Zrb21CLFdBQVksQ0E3QjdvbUIsTUFBTSxDQUFDLFNBQVMsQ0FBQyxjQUFjLENBQUMsZ0JBQWdCLENBQUMsNEJBQWMsQ0FBQyxJQUFJLENBQUM7cUJBQ2xFLFFBQVEsRUFDWCxxQkFBTyxDQUFDLFdBQVcsQ0FBQyxxQkFBTyxDQUFDLEVBQUUsRUFBRSxJQUFJLENBQUMsb0JBQW9CLENBQUMsQ0FBQSxDQUFDO2dCQUM3RCxJQUFJLENBQUMsY0FBYyxDQUNqQixJQUFJLENBQUMsZ0JBQWdCLENBQUMsZ0JBQWdCLENBQUMsWUFBWSxTQUFDLHVCQUFhLEdBQUksQ0FDdEUsQ0FBQzthQUNIO1FBQ0gsQ0FBQyxDQUFDLENBQUM7UUFFSCxpRUFBdUIsd0JBQXdCLENBQS9DLDJDQUFhLENBQUMsUUFBUSxFQUNwQixFQUFFLEVBQ0YsSUFBSSxDQUFDLFFBQVEsRUFDYixTQUFTLEVBQ1QsS0FBSyxFQUNMO0lBQ0osQ0FBQztJQUVPLENBQUMsZ0JBQWdCLENBQUMsVUFBeUI7UUFDakQsSUFBSSxhQUFhLEdBQUcsQ0FBQyxDQUFDO1FBRXRCLFNBQVM7WUFDUCxNQUFNLElBQUksNEJBQWMsQ0FBQyxDQUFDLEdBQUcsSUFBSSxDQUFDLE1BQU0sRUFBRSxHQUFHLENBQUMsQ0FBQyxDQUFDO1lBQ2hELFVBQVUsQ0FBQyxZQUFZLENBQUMsSUFBSSxDQUFDLFNBQVMsQ0FBQyxhQUFhLENBQUMsQ0FBQyxDQUFDO1lBQ3ZELGFBQWEsR0FBRyxDQUFDLGFBQWEsR0FBRyxDQUFDLENBQUMsR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDLE1BQU0sQ0FBQztZQUM1RCxNQUFNLElBQUksNEJBQWMsQ0FBQyxDQUFDLENBQUMsQ0FBQztZQUM1QixVQUFVLENBQUMsWUFBWSxFQUFFLENBQUM7U0FDM0I7SUFDSCxDQUFDO0NBQ0Y7QUFyRUQsc0JBcUVDIn0=","assetPath":"Assets/3D/NPC/NPC.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"zepetoId","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["\"Configuration\""]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.AnimationModule","name":"animation","type":"UnityEngine.AnimationClip","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["\"Animation\""]},{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"dialogueHeightOffset","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["\"Dialogue\""]},{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"dialogues","type":"System.String[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"NPC","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 2880e991207fc0418fa5bf9a987c606a
+  onlyWriteTrigger: 0

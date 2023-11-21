@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: 25abcf6393c3743d587ecd67648d6934
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass GlobalCoroutineManager
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    static get Instance()
+    {\r\n        return GlobalCoroutineManager.instance;\r\n    }\r\n    Awake()
+    {\r\n        GlobalCoroutineManager.instance = this;\r\n    }\r\n    RunAfter(delay,
+    cb) {\r\n        this.StartCoroutine(this.RunAfterSeconds(delay, cb));\r\n   
+    }\r\n    *RunAfterSeconds(delay, cb) {\r\n        yield new UnityEngine_1.WaitForSeconds(delay);\r\n       
+    cb();\r\n    }\r\n}\r\nexports.default = GlobalCoroutineManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2xvYmFsQ29yb3V0aW5lTWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkdsb2JhbENvcm91dGluZU1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBNkM7QUFDN0MsaURBQXNEO0FBRXRELE1BQXFCLHNCQUF1QixTQUFRLHFDQUFxQjtJQUloRSxNQUFNLEtBQUssUUFBUTtRQUN4QixPQUFPLHNCQUFzQixDQUFDLFFBQVEsQ0FBQztJQUN6QyxDQUFDO0lBRUQsS0FBSztRQUNILHNCQUFzQixDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7SUFDekMsQ0FBQztJQUVELFFBQVEsQ0FBQyxLQUFhLEVBQUUsRUFBYztRQUNwQyxJQUFJLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxlQUFlLENBQUMsS0FBSyxFQUFFLEVBQUUsQ0FBQyxDQUFDLENBQUM7SUFDdkQsQ0FBQztJQUVPLENBQUMsZUFBZSxDQUFDLEtBQWEsRUFBRSxFQUFjO1FBQ3BELE1BQU0sSUFBSSw0QkFBYyxDQUFDLEtBQUssQ0FBQyxDQUFDO1FBQ2hDLEVBQUUsRUFBRSxDQUFDO0lBQ1AsQ0FBQztDQUNGO0FBcEJELHlDQW9CQyJ9","assetPath":"Assets/Loading
+    Screen/GlobalCoroutineManager.ts","manifest":{"properties":[],"name":"GlobalCoroutineManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 7c122865179cb80770036583e8a22ca6
+  onlyWriteTrigger: 0

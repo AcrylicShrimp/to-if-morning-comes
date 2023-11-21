@@ -1,0 +1,45 @@
+fileFormatVersion: 2
+guid: 67c851a120103426cb1de23062b47acc
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst
+    ZEPETO_Character_Controller_1 = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst
+    ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst GlobalCoroutineManager_1
+    = require(\\\"./GlobalCoroutineManager\\\");\\r\\nclass LoadingScreen extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n    static get Instance() {\\r\\n       
+    return LoadingScreen.instance;\\r\\n    }\\r\\n    Awake() {\\r\\n        LoadingScreen.instance
+    = this;\\r\\n        this.animator = this.GetComponent($typeof(UnityEngine_1.Animator));\\r\\n   
+    }\\r\\n    Start() {\\r\\n        // \uD50C\uB808\uC774\uC5B4\uAC00 \uC2A4\uD3F0\uB420
+    \uB54C \uD2B9\uC815 \uCF54\uB4DC\uB97C \uC2E4\uD589\uD574\uB2EC\uB77C\uACE0 \uC694\uCCAD\uD569\uB2C8\uB2E4.\\r\\n       
+    ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\\r\\n            // \uD50C\uB808\uC774\uC5B4\uAC00 \uC2A4\uD3F0\uB418\uC5C8\uC2B5\uB2C8\uB2E4.
+    \uC774 \uC6D4\uB4DC\uB97C \uD50C\uB808\uC774\uD560 \uC900\uBE44\uAC00 \uB418\uC5C8\uC73C\uBBC0\uB85C,
+    \uCD08\uAE30 \uB85C\uB529 \uC2A4\uD06C\uB9B0\uC744 \uC81C\uAC70\uD569\uB2C8\uB2E4.\\r\\n           
+    this.Hide();\\r\\n        });\\r\\n    }\\r\\n    // \uB85C\uB529\uC2A4\uD06C\uB9B0\uC744
+    \uBCF4\uC5EC\uC90D\uB2C8\uB2E4.\\r\\n    Show() {\\r\\n        this.gameObject.SetActive(true);\\r\\n       
+    this.animator.SetTrigger(\\\"show\\\");\\r\\n    }\\r\\n    // \uB85C\uB529\uC2A4\uD06C\uB9B0\uC744
+    \uAC10\uCDA5\uB2C8\uB2E4.\\r\\n    Hide() {\\r\\n        this.animator.SetTrigger(\\\"hide\\\");\\r\\n       
+    // 1\uCD08 \uB4A4\uC5D0 \uC790\uAE30 \uC790\uC2E0\uC744 \uB055\uB2C8\uB2E4. 1\uCD08\uB294
+    \uC560\uB2C8\uBA54\uC774\uC158 \uAE38\uC774\uC785\uB2C8\uB2E4.\\r\\n        GlobalCoroutineManager_1.default.Instance.RunAfter(1,
+    () => {\\r\\n            this.gameObject.SetActive(false);\\r\\n        });\\r\\n   
+    }\\r\\n}\\r\\nexports.default = LoadingScreen;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTG9hZGluZ1NjcmVlbi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkxvYWRpbmdTY3JlZW4udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBdUM7QUFDdkMsNkVBQTREO0FBQzVELGlEQUFzRDtBQUV0RCxxRUFBOEQ7QUFFOUQsTUFBcUIsYUFBYyxTQUFRLHFDQUFxQjtJQUl2RCxNQUFNLEtBQUssUUFBUTtRQUN4QixPQUFPLGFBQWEsQ0FBQyxRQUFRLENBQUM7SUFDaEMsQ0FBQztJQUlELEtBQUs7UUFDSCxhQUFhLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQztRQUU5QixJQUFJLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQyxZQUFZLFNBQUMsc0JBQVEsRUFBRyxDQUFDO0lBQ2hELENBQUM7SUFFRCxLQUFLO1FBQ0gsbUNBQW1DO1FBQ25DLDJDQUFhLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDekQseURBQXlEO1lBQ3pELElBQUksQ0FBQyxJQUFJLEVBQUUsQ0FBQztRQUNkLENBQUMsQ0FBQyxDQUFDO0lBQ0wsQ0FBQztJQUVELGdCQUFnQjtJQUNoQixJQUFJO1FBQ0YsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDaEMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxVQUFVLENBQUMsTUFBTSxDQUFDLENBQUM7SUFDbkMsQ0FBQztJQUVELGVBQWU7SUFDZixJQUFJO1FBQ0YsSUFBSSxDQUFDLFFBQVEsQ0FBQyxVQUFVLENBQUMsTUFBTSxDQUFDLENBQUM7UUFDakMscUNBQXFDO1FBQ3JDLGdDQUFzQixDQUFDLFFBQVEsQ0FBQyxRQUFRLENBQUMsQ0FBQyxFQUFFLEdBQUcsRUFBRTtZQUMvQyxJQUFJLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUNuQyxDQUFDLENBQUMsQ0FBQztJQUNMLENBQUM7Q0FDRjtBQXRDRCxnQ0FzQ0MifQ==\",\"assetPath\":\"Assets/Loading
+    Screen/LoadingScreen.ts\",\"manifest\":{\"properties\":[],\"name\":\"LoadingScreen\",\"description\":\"\",\"hasAnimatorMove\":false},\"isCompiled\":true}"
+  typescriptHash: 5cb26bc899bd4823d98227ae5ee7d23d
+  onlyWriteTrigger: 0
